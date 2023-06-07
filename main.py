@@ -1,8 +1,16 @@
 import hashlib
 import csv
+from tkinter import Tk, filedialog
+
+# Create a Tkinter root window
+root = Tk()
+root.withdraw()
+
+# Ask the user to select a CSV file
+file_path = filedialog.askopenfilename(filetypes=[("CSV files", "*.csv")])
 
 # Open the CSV file
-with open('input.csv', 'r') as file:
+with open(file_path, 'r') as file:
     reader = csv.reader(file)
 
     # Loop over each row in the CSV file
@@ -18,3 +26,4 @@ with open('input.csv', 'r') as file:
 
         # Print the hash value
         print("MD5 hash value for", string, ":", hash_value)
+
